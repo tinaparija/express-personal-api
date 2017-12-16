@@ -2,8 +2,8 @@
 
 It's time to have some fun and play with the technologies you've learned in the past week. Your goal is to build a API about yourself. Your API will incorporate:
 * Well-documented **JSON API** Endpoints
-* A full set of **REST-ful Routes** (GET, POST, UPDATE, DELETE)
-* At least one **CRUD-able resource** (Create, Read, Update, Destroy)
+* A full set of **REST-ful Routes** (GET, POST)
+* At least one **CR-able resource** (Create, Read)
 * and an `/api/profile` endpoint with some basic **details about you**
 
 Finally, you will **consume your API** using AJAX and **render the results** to the page using jQuery. You must complete *both* of these portions of the assignment.
@@ -51,8 +51,8 @@ Now that we're deployed, it's time to start coding your "personal" api!
         + e.g. `[{name: "foo", type: "Cat", breed: "Siamese"}, {name: "bar", type: "Dog", breed: "Dalmation"}]`
         + if you do not have any pets, please get creative, or use hobbies instead
     + Please hardcode it! It would be seriously overkill to save a single profile to the database.
-- **At least one resource (mongoose model)** that you can _*CRUD*_ using _*RESTful Routes*_
-    - That means endpoints for `index`, `show`, `create` `update`, `delete`!
+- **At least one resource (mongoose model)** that you can _*Create and Read*_ using _*RESTful Routes*_
+    - That means endpoints for `index`, `show`, and `create`!
     - Here are some ideas:
         * **RECOMMENDED:** `projects` that you have built for this class
             - `_id`, name, description, githubRepoUrl, deployedUrl, screenshot
@@ -76,6 +76,7 @@ All API Endpoints must return JSON.
 > **Pro-Tip**: One good strategy is to add the database *last*. Start with your api routes and some hard-coded data. Make sure it's working the way you want before tackling the database layer!
 
 #### API Stretch Goals
+* Add Deleting and Updating
 * Profile info stretch goals
     * Add a `daysOld` field that calculates how many days old you are.
     * Add an `isAwake` field that's only `true` between 8am and 10pm!
@@ -142,7 +143,7 @@ Consume the Personal API you just created, and use it to build your own personal
 * Use **Template Strings** and **Array Iteration** to render data to the page.
 
 * Display **at least one image/gif** that you retrieved from your Personal API.
-* Create **at least one form**, so you can CRUD at least one of your resources.
+* Create **at least one form**, so you can create new database entries.
 * Get rid of that ugly blue background. Style it up!
 
 <br>
