@@ -1,7 +1,7 @@
 // require express and other modules
 var express = require('express'),
     app = express();
-var db = require('./models');
+
 
 // parse incoming urlencoded form data
 // and populate the req.body object
@@ -20,7 +20,7 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
-// var db = require('./models');
+var db = require('./models');
 
 /**********
  * ROUTES *
@@ -86,24 +86,9 @@ app.get('/api/profile', function apiIndex(req, res) {
 }); 
 
 app.get('/api/cities', function apiIndex(req, res) {
-  res.json([
-{
-  name: "New Delhi, India",
-  description: "I grew up here before immigrating."
-}, 
-{
-  name: "Indianapolis, Indiana",
-  description: "This is the first place I lived in America."
-}, 
-{
-  name: "Solon, Ohio",
-  description: "I graduated high school here."
-}, 
-{
-  name: "San Francisco, California",
-  description: "I live here now."
-}],
-); 
+  db.City.find({}, function(err, cities) {
+      res.json(cities);
+  });
 }); 
 
 app.post('/api/cities', function apiIndex(req, res){

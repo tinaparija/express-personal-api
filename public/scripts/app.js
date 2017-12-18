@@ -9,7 +9,6 @@ $.ajax({
   error: handleError
 });
 
-
 $('form').on('submit', function(e) {
 	e.preventDefault();
 	$.ajax({

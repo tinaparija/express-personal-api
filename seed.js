@@ -19,4 +19,13 @@ var cities_list = [
 }
 ]
 
-function createCities ()
+db.City.remove({}, function(err, cities){
+  // code in here runs after all cities are removed
+  db.City.create(cities_list, function(err, cities){
+    // code in here runs after all cities are created
+    if (err) { return console.log('ERROR', err); }
+    console.log("all albums:", cities);
+    console.log("created", cities.length, "cities");
+    process.exit();
+  });
+});
