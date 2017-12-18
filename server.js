@@ -76,10 +76,11 @@ app.get('/api/profile', function apiIndex(req, res) {
     {
       name: "Tina Parija",
       githubUsername: "tinaparija",
-      githubLink: "https://github.com/tinaparija",
+      githubLink: "https://github.com/tinaparija", 
       githubProfileImage: "https://avatars1.githubusercontent.com/u/14307666?s=460&v=4", 
       personalSiteLink: "https://tinaparija.github.io/", 
       currentCity: "San Francisco, CA", 
+      myFriends: "https://scontent.fsjc1-3.fna.fbcdn.net/v/t31.0-8/16113128_10154478188495756_6066480429500902272_o.jpg?oh=0a6cad3b47d31ff1ab9e5174dbc945ab&oe=5AB4594C", 
       Hobbies: [{name: "hiking", time_investment: "low"},{name: "plant caretaking", time_investment: "high"},{name:"writing", time_investment: "high"}, {name:"cooking", timeInvestment: "medium"}]
     },
   ); 
@@ -92,11 +93,17 @@ app.get('/api/cities', function apiIndex(req, res) {
 }); 
 
 app.post('/api/cities', function apiIndex(req, res){
-  var newCity = {}; 
-  newCity.name = req.body.name; 
-  newCity.description = req.body.description
-  res.json(newCity);
-}); 
+  var newCity = db.City({
+    name: req.body.name, 
+    description: req.body.description
+  });  
+   
+  newCity.save(function(err, newCity){
+    if(err) {return console.log(err);}
+    console.log("saved new city: ", newCity);
+  });
+      res.json(newCity);
+})
 
 
 

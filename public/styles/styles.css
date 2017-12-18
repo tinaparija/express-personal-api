@@ -10,6 +10,11 @@ h1 {
   text-align: center;
 }
 
+#friends-image{
+	height: 300px;
+	width: 400px;
+}
+
 .cityname{
 	font-weight: bold;
 	color:green;

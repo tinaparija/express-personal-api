@@ -4,6 +4,15 @@ $(document).ready(function(){
 
 $.ajax({
   method:"GET",
+  url: "/api/profile",
+  success: function (data) {
+  	$(".image-container").html(`<img src="${data.myFriends}" id="friends-image">`); 
+  }, 
+  error: handleError
+});
+
+$.ajax({
+  method:"GET",
   url: "/api/cities",
   success: handleSuccess,
   error: handleError
@@ -39,7 +48,7 @@ function renderCity(city) {
 var cityDisplay = 
 `<section>
 	<p class ="cityname">${city.name}</p>
-	<p><i>${city.description}</i></p>
+	<p>${city.description}</p>
 </section>` 
 
 $('#cityTarget').append(cityDisplay)
