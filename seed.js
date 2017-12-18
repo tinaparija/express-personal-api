@@ -1,15 +1,22 @@
-// This file allows us to seed our application with data
-// simply run: `node seed.js` from the root of this project folder.
+var db = require('./models');
 
-// var db = require('./models');
+var cities_list = [
+{
+	name: "New Delhi, India",
+	description: "I grew up here before immigrating."
+}, 
+{
+	name: "Indianapolis, Indiana",
+	description: "This is the first place I lived in America."
+}, 
+{
+	name: "Solon, Ohio",
+	description: "I graduated high school here."
+}, 
+{
+	name: "San Francisco, California",
+	description: "I live here now."
+}
+]
 
-// var new_campsite = {description: "Sharp rocks. Middle of nowhere."}
-
-// db.Campsite.create(new_campsite, function(err, campsite){
-//   if (err){
-//     return console.log("Error:", err);
-//   }
-
-//   console.log("Created new campsite", campsite._id)
-//   process.exit(); // we're all done! Exit the program.
-// })
+function createCities ()
